@@ -25,10 +25,21 @@ class Home extends Component {
         if (res.data.status === "error") {
           throw new Error(res);
         }
+        res.data.response.docs.forEach(function (doc) {
+          // console.log(doc.byline);
+          if (doc.byline === undefined) {
+            doc.byline = {original: 'No Byline'};
+            // console.log(doc.byline);
+          }
+         if (doc.pub_date === undefined) {
+              doc.pub_date = 'Undated';
+              // console.log(doc.pub_date);
+          }
+        });
         // TODO: delete when no longer useful
-        // console.log(res.data.response.docs[0].headline.main);
-        // console.log(res.data.response.docs[0].byline.original);
-        // console.log(res.data.response.docs[0].pub_date);
+        // console.log(res.data.response.docs[9].headline.main);
+        // console.log(res.data.response.docs[9].byline.original);
+        // console.log(res.data.response.docs[9].pub_date);
         // console.log(res.data.response.docs[0].web_url);
         // console.log(res.data.response.docs);
         this.setState({ results: res.data.response.docs, error: "" });
@@ -148,17 +159,50 @@ class Home extends Component {
                 {/* {console.log(this.state.results)} */}
                 {this.state.results.map(result => (
                   // start of article card
-                  <div className='card' key={result.web_url}>
-                    <h4>
-                      <strong>
-                        {result.headline.main}
-                      </strong>
-                    </h4>
-                  {/* end of article card */}
-                  </div>
-                ))}
+                  <div className='row'>
 
-              {/* end of card-body */}
+                    <div className='col-sm-8'>
+                      {/* start of content card */}
+                      <div className='card' key={result.web_url}>
+                        <h4>
+                          <strong>
+                            {result.headline.main}
+                          </strong>
+                        </h4>
+                        <h6>
+                          {result.byline.original}
+                        </h6>
+                        <h6>
+                          {result.pub_date}
+                        </h6>
+                        <h6>
+                          <a href='{result.web_url}'>
+                            {result.web_url}
+                          </a>
+                        </h6>
+                      {/* end of content card */}
+                      </div>
+                    {/* End of col-sm-8 */}
+                    </div>
+
+                    <div className='col-sm-4'>
+                      {/* start of button card */}
+                      <div className='card' key={result.web_url}>
+                        <div className='btn-group vertical'>
+                                <button type="button" className='btn'>Top</button>
+                                <button type="button" className='btn'>Bottom</button>
+                        </div>
+                      {/* end of button card */}
+                      </div>
+                    {/* end of col-sm-4 */}
+                    </div>
+
+                {/* end of article row */}
+                </div>
+                // end of .map
+                ))} 
+
+              {/* end of top-level card-body */}
               </div>
 
             {/* end of top-level card */}
