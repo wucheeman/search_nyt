@@ -2,7 +2,82 @@ import React from "react";
 import "./Home.css";
 
 const Home = props => (
-  <p>Reached the Home page</p>
+  // <p>Reached the Home page</p>
+  <div className='container'>
+    {/* styles in App.css appear in 'search section */}
+
+    {/* <!-- Jumbotron for Title --> */}
+    <div className="jumbotron">
+      <h1 className="text-center">
+        <strong>
+          <i className="fa fa-newspaper-o"></i> New York Times Search</strong>
+      </h1>
+    </div>
+
+    {/* <!-- Row for Searching New York Times --> */}
+    <div className="row">
+      <div className="col-sm-12">
+        <br />
+
+        {/* <!-- First card is for handling the search parameters --> */}
+        <div className="card">
+
+          <div className="card-header">
+            <h3 className="card-title">
+              <strong>
+                <i className="fa  fa-list-alt"></i> Search Parameters</strong>
+            </h3>
+          </div>
+
+          <div className="card-body">
+            {/* HTML Form for inputs */}
+            {/* TODO: remove role=form; redundant and bad practice */}
+            <form role="form">
+
+            {/* the text box for search term */}
+            <div className="form-group">
+              <label for="search">Search Term:</label>
+              <input type="text" className="form-control" id="search-term" />
+            </div>
+
+            {/* number of records to retrieve*/}
+            <div className="form-group">
+              <label for="pwd">Number of Records to Retrieve:</label>
+              <select className="form-control" id="article-count">
+                <option value="1">1</option>
+                {/* Set 5 as default*/}
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label for="start-year">Start Year (Optional):</label>
+              <input type="text" class="form-control" id="start-year" />
+            </div>
+
+            <div className="form-group">
+              <label for="end-year">End Year (Optional):</label>
+              <input type="text" class="form-control" id="end-year" />
+            </div>
+
+            <button type="submit" className="btn btn-default" id="run-search">
+              <i class="fa fa-search"></i> Search</button>
+            <button type="button" class="btn btn-default" id="clear-all">
+              <i class="fa fa-trash"></i> Clear Results</button>
+
+            </form>
+          {/* end of card body */}
+          </div>
+        {/* end of first card */}
+        </div>
+
+      {/* end of col-sm-12 */}
+      </div>
+    {/* end of row */}
+    </div>
+  {/* end of container */}
+  </div> 
 );
 
 export default Home;
