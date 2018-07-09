@@ -136,14 +136,35 @@ class Home extends Component {
               <div className="card-header">
                 <h3 className="card-title">
                   <strong>
-                    <i className="fa fa-table"></i> Top Articles</strong>
+                    <i className="fa fa-table"></i>
+                    Top Articles
+                  </strong>
                 </h3>
               </div>
 
               {/* TODO: improve ID */}
               {/* individual articles go in cards here */}
               <div className="card-body" id="well-section">
-                {console.log(this.state.results)}
+                {/* {console.log(this.state.results)} */}
+                  {this.state.results.map(result => (
+                    <div className='card'>
+                      <h4>
+                        <strong>
+                          {result.headline.main}
+                        </strong>
+                      </h4>
+                      <h6>
+                        {result.byline.original}
+                      </h6>
+                      <h6>
+                        {result.pub_date}
+                      </h6>
+                      <a href='{result.web_url}'>
+                        {result.web_url}
+                      </a>
+                    {/* End of article card */}
+                    </div>
+                ))}
               </div>
 
             {/* end of top-level card */}
