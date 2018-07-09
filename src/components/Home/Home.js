@@ -74,8 +74,36 @@ const Home = props => (
 
       {/* end of col-sm-12 */}
       </div>
-    {/* end of row */}
+    {/* end of search card's row */}
     </div>
+
+    {/* retrieved articles appear here */}
+    <div className="row">
+      <div className="col-sm-12">
+        <br />
+
+        {/* Top-level card for section */}
+        <div class="card">
+        
+          <div className="card-header">
+            <h3 className="card-title">
+              <strong>
+                <i className="fa fa-table"></i> Top Articles</strong>
+            </h3>
+          </div>
+
+          {/* TODO: improve ID */}
+          {/* individual articles go in cards here */}
+          <div className="card-body" id="well-section">
+          </div>
+
+        {/* end of top-level card */}
+        </div>
+      {/* end of col-sm-12 */}
+      </div>
+    {/* end of results row */}
+    </div>
+
   {/* end of container */}
   </div> 
 );
