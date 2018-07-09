@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Search from "./pages/Search";
 import Navbar from "./components/Navbar";
 import Saved from "./components/Saved";
+// placeholder until I understand requirement
+import Placeholder from "./components/Placeholder";
 // import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 
@@ -14,10 +16,10 @@ const App = () => (
     <div>
       <Navbar />
       <Wrapper>
-        {/* <Route exact path="/" component={About} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/discover" component={Discover} /> */}
-        <Route exact path="/search" component={Saved} />
+        {/* <Route exact path="/" component={About} /> */}
+        {/* <Route exact path="/about" component={About} /> */}
+        <Route exact path="/placeholder" component={Placeholder} />
+        <Route exact path="/saved" component={Saved} />
       </Wrapper>
       {/* <Footer /> */}
     </div>

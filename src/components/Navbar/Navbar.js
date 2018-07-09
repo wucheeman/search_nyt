@@ -30,7 +30,7 @@ const Navbar = props => (
           }
         >
           <Link to="/discover" className="nav-link">
-            ???
+            Placeholder
           </Link>
         </li>
         <li
