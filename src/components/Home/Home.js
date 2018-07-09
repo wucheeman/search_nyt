@@ -20,6 +20,13 @@ class Home extends Component {
   //   this.setState({ searchTerm: searchTerm });
   // };
 
+  handleClick = event => {
+    let value = event.target.value;
+    const name = event.target.name;
+    console.log(name, value);
+    window.open(value, '_blank');
+  }
+
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value.trim();
@@ -206,11 +213,12 @@ class Home extends Component {
                         <h6>
                           {result.pub_date}
                         </h6>
-                        <h6>
+                        {/* TODO: delete this */}
+                        {/* <h6>
                           <a href='{result.web_url}'>
                             {result.web_url}
                           </a>
-                        </h6>
+                        </h6> */}
                       {/* end of content card */}
                       </div>
                     {/* End of col-sm-8 */}
@@ -220,8 +228,18 @@ class Home extends Component {
                       {/* start of button card */}
                       <div className='card' key={result.web_url}>
                         <div className='btn-group vertical'>
-                                <button type="button" className='btn'>Top</button>
-                                <button type="button" className='btn'>Bottom</button>
+                          <form>
+                            <button
+                              value={result.web_url}
+                              name='viewArticle'
+                              onClick={this.handleClick}
+                              type="button"
+                              className='btn'
+                            >
+                              View Article
+                            </button>
+                          </form>
+                          <button type="button" className='btn'>Save Article</button>
                         </div>
                       {/* end of button card */}
                       </div>
