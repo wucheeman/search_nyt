@@ -1,3 +1,23 @@
 ul.search-results img {
   margin: 0 auto;
 }
+
+/* style for search section begins */
+
+/* fix for issue of text extending past panel length */
+
+.card-body a {
+  word-break: break-all;
+}
+
+.articleHeadline {
+  line-height: 1.5;
+}
+/*  end of fix */
+
+.jumbotron {
+background-color: #20315A ;
+color: white;
+}
+
+/* end of search section styling */
