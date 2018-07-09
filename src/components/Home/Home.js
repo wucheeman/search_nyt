@@ -7,19 +7,47 @@ import "./Home.css";
 class Home extends Component {
   state = {
     searchTerm: '',
+    startYear: '',
+    endYear: '',
     results: [],
     error: ''
   };
 
+  // TODO: delete when enhancement is complete
+  // handleInputChange = event => {
+  //   const searchTerm = event.target.value.trim()
+  //   console.log('the search term is ' + searchTerm);
+  //   this.setState({ searchTerm: searchTerm });
+  // };
+
   handleInputChange = event => {
-    const searchTerm = event.target.value.trim()
-    console.log('the search term is ' + searchTerm);
-    this.setState({ searchTerm: searchTerm });
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value.trim();
+    const name = event.target.name;
+
+    // TODO: add validation for startYear and endYear
+    // if (name === "password") {
+    //   value = value.substring(0, 15);
+    // }
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getArticles(this.state.searchTerm)
+    // console.log(this.state.searchTerm, this.state.startYear, this.state.endYear);
+    let searchQuery = this.state.searchTerm
+    if (this.state.startYear) {
+      searchQuery = `${searchQuery}&begin_date=${this.state.startYear}0101`;
+    }
+    if (this.state.endYear) {
+      searchQuery = `${searchQuery}&end_date=${this.state.endYear}1231`;
+    }
+    console.log(searchQuery);
+    
+    API.getArticles(searchQuery)
       //  .then(console.log)
       .then(res => {
         if (res.data.status === "error") {
@@ -84,6 +112,7 @@ class Home extends Component {
                   <label for="search">Search Term:</label>
                   <input
                     value={this.searchTerm}
+                    name='searchTerm'
                     onChange={this.handleInputChange}
                     type="text"
                     className="form-control"
@@ -91,26 +120,27 @@ class Home extends Component {
                   />
                 </div>
 
-                {/* TODO: delete */}
-                {/* number of records to retrieve*/}
-                {/* <div className="form-group">
-                  <label for="pwd">Number of Records to Retrieve:</label>
-                  <select className="form-control" id="article-count">
-                    <option value="1">1</option> */}
-                    {/* Set 5 as default*/}
-                  {/*}  <option value="5" selected>5</option>
-                    <option value="10">10</option>
-                  </select>
-                </div> */}
-
                 <div className="form-group">
                   <label for="start-year">Start Year (Optional):</label>
-                  <input type="text" className="form-control" id="start-year" />
+                  <input
+                    value={this.state.startYear}
+                    name='startYear'
+                    onChange={this.handleInputChange}
+                    type="text"
+                    className="form-control"
+                    id="start-year"
+                  />
                 </div>
 
                 <div className="form-group">
                   <label for="end-year">End Year (Optional):</label>
-                  <input type="text" className="form-control" id="end-year" />
+                  <input
+                    value={this.state.endYear}
+                    name='endYear'
+                    onChange={this.handleInputChange}
+                    type="text"
+                    className="form-control"
+                    id="end-year" />
                 </div>
 
                 <button
@@ -163,6 +193,7 @@ class Home extends Component {
 
                     <div className='col-sm-8'>
                       {/* start of content card */}
+                      {/* TODO: delete key value? doesn't seem to work */}
                       <div className='card' key={result.web_url}>
                         <h4>
                           <strong>
