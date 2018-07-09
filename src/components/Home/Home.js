@@ -11,8 +11,22 @@ class Home extends Component {
   };
 
   handleInputChange = event => {
-    // console.log(event.target.value);
-    this.setState({ search: event.target.value });
+    const searchTerm = event.target.value.trim()
+    console.log('the search term is ' + searchTerm);
+    this.setState({ searchTerm: searchTerm });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.getArticles(this.state.searchTerm)
+       .then(console.log)
+      // .then(res => {
+      //   if (res.data.status === "error") {
+      //     throw new Error(res.data.message);
+      //   }
+      //   this.setState({ results: res.data.message, error: "" });
+      // })
+      // .catch(err => this.setState({ error: err.message }));
   };
 
   render() {
@@ -80,8 +94,15 @@ class Home extends Component {
                   <input type="text" class="form-control" id="end-year" />
                 </div>
 
-                <button type="submit" className="btn btn-default" id="run-search">
-                  <i class="fa fa-search"></i> Search</button>
+                <button
+                  type="submit"
+                  onClick={this.handleFormSubmit}
+                  className="btn btn-default"
+                  id="run-search"
+                >
+                  <i class="fa fa-search"></i>
+                  Search
+                </button>
                 <button type="button" class="btn btn-default" id="clear-all">
                   <i class="fa fa-trash"></i> Clear Results</button>
 
