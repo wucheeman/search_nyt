@@ -7,6 +7,7 @@ import "./Home.css";
 class Home extends Component {
   state = {
     searchTerm: '',
+    results: [],
     error: ''
   };
 
@@ -19,14 +20,20 @@ class Home extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     API.getArticles(this.state.searchTerm)
-       .then(console.log)
-      // .then(res => {
-      //   if (res.data.status === "error") {
-      //     throw new Error(res.data.message);
-      //   }
-      //   this.setState({ results: res.data.message, error: "" });
-      // })
-      // .catch(err => this.setState({ error: err.message }));
+      //  .then(console.log)
+      .then(res => {
+        if (res.data.status === "error") {
+          throw new Error(res);
+        }
+        // TODO: delete when no longer useful
+        // console.log(res.data.response.docs[0].headline.main);
+        // console.log(res.data.response.docs[0].byline.original);
+        // console.log(res.data.response.docs[0].pub_date);
+        // console.log(res.data.response.docs[0].web_url);
+        // console.log(res.data.response.docs);
+        this.setState({ results: res.data.response.docs, error: "" });
+      })
+      .catch(err => this.setState({ error: err.message }));
   };
 
   render() {
@@ -73,25 +80,26 @@ class Home extends Component {
                   />
                 </div>
 
+                {/* TODO: delete */}
                 {/* number of records to retrieve*/}
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label for="pwd">Number of Records to Retrieve:</label>
                   <select className="form-control" id="article-count">
-                    <option value="1">1</option>
+                    <option value="1">1</option> */}
                     {/* Set 5 as default*/}
-                    <option value="5" selected>5</option>
+                  {/*}  <option value="5" selected>5</option>
                     <option value="10">10</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div className="form-group">
                   <label for="start-year">Start Year (Optional):</label>
-                  <input type="text" class="form-control" id="start-year" />
+                  <input type="text" className="form-control" id="start-year" />
                 </div>
 
                 <div className="form-group">
                   <label for="end-year">End Year (Optional):</label>
-                  <input type="text" class="form-control" id="end-year" />
+                  <input type="text" className="form-control" id="end-year" />
                 </div>
 
                 <button
@@ -100,11 +108,11 @@ class Home extends Component {
                   className="btn btn-default"
                   id="run-search"
                 >
-                  <i class="fa fa-search"></i>
+                  <i className="fa fa-search"></i>
                   Search
                 </button>
-                <button type="button" class="btn btn-default" id="clear-all">
-                  <i class="fa fa-trash"></i> Clear Results</button>
+                <button type="button" className="btn btn-default" id="clear-all">
+                  <i className="fa fa-trash"></i> Clear Results</button>
 
                 </form>
               {/* end of card body */}
@@ -123,7 +131,7 @@ class Home extends Component {
             <br />
 
             {/* Top-level card for section */}
-            <div class="card">
+            <div className="card">
             
               <div className="card-header">
                 <h3 className="card-title">
@@ -135,6 +143,7 @@ class Home extends Component {
               {/* TODO: improve ID */}
               {/* individual articles go in cards here */}
               <div className="card-body" id="well-section">
+                {console.log(this.state.results)}
               </div>
 
             {/* end of top-level card */}
