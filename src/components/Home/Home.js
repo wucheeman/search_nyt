@@ -146,25 +146,19 @@ class Home extends Component {
               {/* individual articles go in cards here */}
               <div className="card-body" id="well-section">
                 {/* {console.log(this.state.results)} */}
-                  {this.state.results.map(result => (
-                    <div className='card'>
-                      <h4>
-                        <strong>
-                          {result.headline.main}
-                        </strong>
-                      </h4>
-                      <h6>
-                        {result.byline.original}
-                      </h6>
-                      <h6>
-                        {result.pub_date}
-                      </h6>
-                      <a href='{result.web_url}'>
-                        {result.web_url}
-                      </a>
-                    {/* End of article card */}
-                    </div>
+                {this.state.results.map(result => (
+                  // start of article card
+                  <div className='card' key={result.web_url}>
+                    <h4>
+                      <strong>
+                        {result.headline.main}
+                      </strong>
+                    </h4>
+                  {/* end of article card */}
+                  </div>
                 ))}
+
+              {/* end of card-body */}
               </div>
 
             {/* end of top-level card */}
