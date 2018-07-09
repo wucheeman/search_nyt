@@ -6,7 +6,13 @@ import "./Home.css";
 
 class Home extends Component {
   state = {
+    searchTerm: '',
+    error: ''
+  };
 
+  handleInputChange = event => {
+    // console.log(event.target.value);
+    this.setState({ search: event.target.value });
   };
 
   render() {
@@ -44,7 +50,13 @@ class Home extends Component {
                 {/* the text box for search term */}
                 <div className="form-group">
                   <label for="search">Search Term:</label>
-                  <input type="text" className="form-control" id="search-term" />
+                  <input
+                    value={this.searchTerm}
+                    onChange={this.handleInputChange}
+                    type="text"
+                    className="form-control"
+                    id="search-term"
+                  />
                 </div>
 
                 {/* number of records to retrieve*/}
