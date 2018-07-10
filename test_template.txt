@@ -23,7 +23,7 @@ Static Requirements
 [] App uses Bootstrap
 [] App has a get route - /api/articles to query MongoDB for all saved articles
 [] App has a post route - api/articles to save article to MongoDB
-[] App has a delete rotue - api/articles to delete a saved article
+[] App has a delete route - api/articles to delete a saved article
 [] `*` (get) - to load single HTML page (with ReactJS) in `client/build/index.html`. This route is placed after all other GET routes
 [] App has at least two React components: Home Page and Saved Page. Each component 	may contain smaller components or JSX if desired.
 
@@ -34,24 +34,26 @@ Functional Requirements - Assignment
 	() displays the article title and publication date
 	() allows the user to visit an article's url
 	() enables user to save the article to the MongoDB.
-
 [] Saved Page renders articles that are saved in the MongoDB
 [] Saved Page allows the user to visit the article's url
 [] Saved Page enables user to delete article from the MongoDB.
 [] Saved Page may contain smaller components or JSX
+
+Additional Functionality
+========================
+[] App initializes correctly
+[] App reinitializes correctly
+[] App rejects empty search term (stretch goal)
+[] App validates start date
+[] App validates end date
 
 Bonus Functionality
 ===================
 [] App uses socket.io to create a notification or a component that triggers whenever a user saves an article. Your message should include the title of the saved article.
 [] Say you have multiple browsers open, each one visiting your site. If you save an article in one browser, then all of your browsers should notify you that a new article was saved.
 
-Additional Functionality
-========================
-[p] Game initializes correctly
-[p] Game reinitializes correctly
-
 Display
 =======
-
+[] App resembles demo closely
 
 
