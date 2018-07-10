@@ -24,14 +24,25 @@ class Home extends Component {
     let value = event.target.value;
     const name = event.target.name;
     console.log(name, value);
-    window.open(value, '_blank');
+    if (name==='viewArticle') {
+      window.open(value, '_blank');
+    }
+    else if (name==='clearAll') {
+      this.setState({searchTerm: ''});
+      this.setState({startYear: ''});
+      this.setState({endYear: ''});
+      this.setState({results: []});
+      // not resetting
+      // this.state.error = '';
+    } 
+ 
   }
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
-    let value = event.target.value.trim();
+    let value = event.target.value;
     const name = event.target.name;
-
+    console.log(value);
     // TODO: add validation for startYear and endYear
     // if (name === "password") {
     //   value = value.substring(0, 15);
@@ -114,54 +125,64 @@ class Home extends Component {
                 {/* TODO: remove role=form; redundant and bad practice */}
                 <form role="form">
 
-                {/* the text box for search term */}
-                <div className="form-group">
-                  <label for="search">Search Term:</label>
-                  <input
-                    value={this.searchTerm}
-                    name='searchTerm'
-                    onChange={this.handleInputChange}
-                    type="text"
-                    className="form-control"
-                    id="search-term"
-                  />
-                </div>
+                  {/* the text box for search term */}
+                  <div className="form-group">
+                    <label for="search">Search Term:</label>
+                    <input
+                      value={this.state.searchTerm}
+                      name='searchTerm'
+                      onChange={this.handleInputChange}
+                      type="text"
+                      className="form-control"
+                      id="search-term"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <label for="start-year">Start Year (Optional):</label>
-                  <input
-                    value={this.state.startYear}
-                    name='startYear'
-                    onChange={this.handleInputChange}
-                    type="text"
-                    className="form-control"
-                    id="start-year"
-                  />
-                </div>
+                  <div className="form-group">
+                    <label for="start-year">Start Year (Optional):</label>
+                    <input
+                      value={this.state.startYear}
+                      name='startYear'
+                      onChange={this.handleInputChange}
+                      type="text"
+                      className="form-control"
+                      id="start-year"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <label for="end-year">End Year (Optional):</label>
-                  <input
-                    value={this.state.endYear}
-                    name='endYear'
-                    onChange={this.handleInputChange}
-                    type="text"
-                    className="form-control"
-                    id="end-year" />
-                </div>
+                  <div className="form-group">
+                    <label for="end-year">End Year (Optional):</label>
+                    <input
+                      value={this.state.endYear}
+                      name='endYear'
+                      onChange={this.handleInputChange}
+                      type="text"
+                      className="form-control"
+                      id="end-year" />
+                  </div>
 
-                <button
-                  type="submit"
-                  onClick={this.handleFormSubmit}
-                  className="btn btn-default"
-                  id="run-search"
-                >
-                  <i className="fa fa-search"></i>
-                  Search
-                </button>
-                <button type="button" className="btn btn-default" id="clear-all">
-                  <i className="fa fa-trash"></i> Clear Results</button>
-
+                  <button
+                    type="submit"
+                    onClick={this.handleFormSubmit}
+                    className="btn btn-default"
+                    id="run-search"
+                  >
+                    <i className="fa fa-search"></i>
+                    Search
+                  </button>
+                </form>
+                <form>
+                  <button
+                    value=''
+                    name='clearAll'
+                    onClick={this.handleClick}
+                    type="button"
+                    className="btn btn-default"
+                    id="clear-all"
+                  >
+                    <i className="fa fa-trash"></i>
+                    Clear Results
+                  </button>
                 </form>
               {/* end of card body */}
               </div>
