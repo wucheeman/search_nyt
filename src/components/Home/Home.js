@@ -13,19 +13,15 @@ class Home extends Component {
     error: ''
   };
 
-  // TODO: delete when enhancement is complete
-  // handleInputChange = event => {
-  //   const searchTerm = event.target.value.trim()
-  //   console.log('the search term is ' + searchTerm);
-  //   this.setState({ searchTerm: searchTerm });
-  // };
-
   handleClick = event => {
     let value = event.target.value;
     const name = event.target.name;
-    console.log(name, value);
+    // console.log(name, value);
     if (name==='viewArticle') {
       window.open(value, '_blank');
+    }
+    else if (name==='saveArticle') {
+      console.log('Need to save the article');
     }
     else if (name==='clearAll') {
       this.setState({searchTerm: ''});
@@ -234,13 +230,7 @@ class Home extends Component {
                         <h6>
                           {result.pub_date}
                         </h6>
-                        {/* TODO: delete this */}
-                        {/* <h6>
-                          <a href='{result.web_url}'>
-                            {result.web_url}
-                          </a>
-                        </h6> */}
-                      {/* end of content card */}
+                       {/* end of content card */}
                       </div>
                     {/* End of col-sm-8 */}
                     </div>
@@ -260,7 +250,17 @@ class Home extends Component {
                               View Article
                             </button>
                           </form>
-                          <button type="button" className='btn'>Save Article</button>
+                          <form>
+                            <button
+                              value='TBD'
+                              name='saveArticle'
+                              onClick={this.handleClick}
+                              type="button"
+                              className='btn'
+                            >
+                              Save Article
+                            </button>
+                          </form>
                         </div>
                       {/* end of button card */}
                       </div>
