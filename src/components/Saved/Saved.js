@@ -6,6 +6,7 @@ import "./Saved.css";
 
 class Saved extends Component {
   // TODO: state not yet edited from Home.js
+  // edit to reflect retrieved articles; they should have the same structure as results
   state = {
     searchTerm: '',
     startYear: '',
@@ -15,6 +16,8 @@ class Saved extends Component {
   };
 
   // TODO: not yet edited from Home.js
+  // view article should be same; other button should be delete
+  // clearAll can be deleted
   handleClick = event => {
     let value = event.target.value;
     const name = event.target.name;
@@ -33,61 +36,19 @@ class Saved extends Component {
       // not resetting
       // this.state.error = '';
     } 
- 
-  }
 
-  // TODO: not yet edited from Home.js
-  handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-    console.log(value);
-    // TODO: add validation for startYear and endYear
-    // if (name === "password") {
-    //   value = value.substring(0, 15);
-    // }
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
-  };
-
-  // TODO: not yet edited from Home.js
-  // TODO: delete?
-  handleFormSubmit = event => {
-    event.preventDefault();
-    // console.log(this.state.searchTerm, this.state.startYear, this.state.endYear);
-    let searchQuery = this.state.searchTerm
-    if (this.state.startYear) {
-      searchQuery = `${searchQuery}&begin_date=${this.state.startYear}0101`;
-    }
-    if (this.state.endYear) {
-      searchQuery = `${searchQuery}&end_date=${this.state.endYear}1231`;
-    }
-    console.log(searchQuery);
+    // TODO: 
+    // getSavedArticles = () => {
     
-    API.getArticles(searchQuery)
-      //  .then(console.log)
-      .then(res => {
-        if (res.data.status === "error") {
-          throw new Error(res);
-        }
-        res.data.response.docs.forEach(function (doc) {
-          // console.log(doc.byline);
-          if (doc.byline === undefined) {
-            doc.byline = {original: 'No Byline'};
-            // console.log(doc.byline);
-          }
-         if (doc.pub_date === undefined) {
-              doc.pub_date = 'Undated';
-              // console.log(doc.pub_date);
-          }
-        });
-        this.setState({ results: res.data.response.docs, error: "" });
-      })
-      .catch(err => this.setState({ error: err.message }));
-  };
+    // }
 
+    // TODO
+    // deleteSavedArticle = () => {
+
+    // }
+
+
+  }
   // TODO: not yet edited from Home.js
   render() {
     return(
