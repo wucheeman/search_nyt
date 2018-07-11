@@ -10,8 +10,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-		"server": "node server.js",
-		"client": "cd client && npm run start"
+    "server": "node server.js",
+    "client": "cd client && npm run start"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,9 @@
   "homepage": "https://github.com/wucheeman/search_nyt#readme",
   "devDependencies": {
     "concurrently": "^3.6.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "mongoose": "^5.2.3"
   }
 }
