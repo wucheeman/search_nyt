@@ -1,0 +1,28 @@
+{
+  "name": "search_nyt",
+  "version": "1.0.0",
+  "description": "## What the project does This is an implementation of the New York Times Search app, implemented with React, and built as homework for the February 2018 UNC Coding Boot Camp. Comments on the app and code will be added here when it is complete.",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wucheeman/search_nyt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wucheeman/search_nyt/issues"
+  },
+  "homepage": "https://github.com/wucheeman/search_nyt#readme",
+  "devDependencies": {
+    "concurrently": "^3.6.0"
+  }
+}
