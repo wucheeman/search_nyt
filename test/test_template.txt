@@ -1,0 +1,59 @@
+TEST TEMPLATE FOR SEARCH NYT
+
+d = deferred
+e = met by enhancement
+f = failed
+p = passed
+s = skipped
+w = waiting for further work
+
+Make sure you're working in a copy of this for a homework assignment! 
+
+Static Requirements
+===================
+[] App is a React app
+[] App uses Mongo
+[] App uses Mongoose
+[] App uses Node/Express
+[] App uses React-Router
+[] Mongoose provides an Article schema/model
+	() title
+	() date/time of publication
+	() URL of article 
+[] App uses Bootstrap
+[] App has a get route - /api/articles to query MongoDB for all saved articles
+[] App has a post route - api/articles to save article to MongoDB
+[] App has a delete route - api/articles to delete a saved article
+[] `*` (get) - to load single HTML page (with ReactJS) in `client/build/index.html`. This route is placed after all other GET routes
+[] App has at least two React components: Home Page and Saved Page. Each component 	may contain smaller components or JSX if desired.
+
+Functional Requirements - Assignment
+====================================
+[] Home Page enables user to query the NYT API for articles.
+[] Home Page displays the results from the API search in a list that
+	() displays the article title and publication date
+	() allows the user to visit an article's url
+	() enables user to save the article to the MongoDB.
+[] Saved Page renders articles that are saved in the MongoDB
+[] Saved Page allows the user to visit the article's url
+[] Saved Page enables user to delete article from the MongoDB.
+[] Saved Page may contain smaller components or JSX
+
+Additional Functionality
+========================
+[] App initializes correctly
+[] App reinitializes correctly
+[] App rejects empty search term (stretch goal)
+[] App validates start date
+[] App validates end date
+
+Bonus Functionality
+===================
+[] App uses socket.io to create a notification or a component that triggers whenever a user saves an article. Your message should include the title of the saved article.
+[] Say you have multiple browsers open, each one visiting your site. If you save an article in one browser, then all of your browsers should notify you that a new article was saved.
+
+Display
+=======
+[] App resembles demo closely
+
+
