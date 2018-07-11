@@ -15,15 +15,17 @@ db.articles.insert({
   web_url: "www.nyt.com/123456",
   pub_date: Date()
 })
+
 db.articles.insert({ 
   headline: "Article 3",
   byline: "Were Allareportah",
   web_url: "www.nyt.com/123789",
   pub_date: Date()
 })
+
 db.articles.insert({ 
   headline: "Article 4",
-  byline: Ima Reporter"",
+  byline: "Ima Reporter",
   web_url: "www.nyt.com/123098",
   pub_date: Date()
 })
