@@ -1,6 +1,6 @@
 
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Saved from "./components/Saved";
@@ -14,9 +14,11 @@ const App = () => (
       <Navbar />
       <Jumbotron />
       <Wrapper>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/saved" component={Saved} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/saved" component={Saved} />
+        </Switch>
       </Wrapper>
       {/* <Footer /> */}
     </div>

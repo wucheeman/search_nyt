@@ -2,18 +2,38 @@
 
 import React, { Component } from "react";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 import "./Saved.css";
 
 class Saved extends Component {
-  // TODO: state not yet edited from Home.js
-  // edit to reflect retrieved articles; they should have the same structure as results
   state = {
-    searchTerm: '',
-    startYear: '',
-    endYear: '',
-    results: [],
-    error: ''
+    // TODO: delete
+    // searchTerm: '',
+    // startYear: '',
+    // endYear: '',
+    // results: [],
+    // error: ''
+    articles: [], // will be array of saved articles
+    headline: "",
+    byline: "",
+    web_url: "",
+    pub_date: "" // Mongo represents as Date; probably string is fine
   };
+
+  componentDidMount() {
+    this.loadSaved();
+  }
+
+  loadSaved = () => {
+    API.getSaved()
+      .then(res =>
+        this.setState({ articles: res.data })
+      )
+      .catch(err => console.log(err));
+  };
+
+// TODO add method for deleting article
+
 
   // TODO: not yet edited from Home.js
   // view article should be same; other button should be delete
@@ -37,19 +57,8 @@ class Saved extends Component {
       // this.state.error = '';
     } 
 
-    // TODO: 
-    // getSavedArticles = () => {
-    
-    // }
-
-    // TODO
-    // deleteSavedArticle = () => {
-
-    // }
-
-
   }
-  // TODO: not yet edited from Home.js
+  // TODO: partially (?) edited from Home.js
   render() {
     return(
       <div className='container'>
@@ -74,25 +83,25 @@ class Saved extends Component {
               {/* TODO: improve ID */}
               {/* individual articles go in cards here */}
               <div className="card-body" id="well-section">
-                {/* {console.log(this.state.results)} */}
-                {this.state.results.map(result => (
+                {/* {console.log(this.state.articles)} */}
+                {this.state.articles.map(article => (
                   // start of article card
                   <div className='row'>
 
                     <div className='col-sm-8'>
                       {/* start of content card */}
                       {/* TODO: delete key value? doesn't seem to work */}
-                      <div className='card' key={result.web_url}>
+                      <div className='card' key={article.web_url}>
                         <h4>
                           <strong>
-                            {result.headline.main}
+                            {article.headline}
                           </strong>
                         </h4>
                         <h6>
-                          {result.byline.original}
+                          {article.byline}
                         </h6>
                         <h6>
-                          {result.pub_date}
+                          {article.pub_date}
                         </h6>
                        {/* end of content card */}
                       </div>
@@ -101,11 +110,11 @@ class Saved extends Component {
 
                     <div className='col-sm-4'>
                       {/* start of button card */}
-                      <div className='card' key={result.web_url}>
+                      <div className='card' key={article.web_url}>
                         <div className='btn-group vertical'>
                           <form>
                             <button
-                              value={result.web_url}
+                              value={article.web_url}
                               name='viewArticle'
                               onClick={this.handleClick}
                               type="button"

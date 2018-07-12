@@ -31,6 +31,13 @@ db.articles.insert({
 })
 
 db.articles.insert({ 
+  headline: "Guidelines for brutalist web design",
+  byline: "Rbo Beschizza",
+  web_url: "https://boingboing.net/2018/07/11/guidelines-for-brutalist-web-d.html",
+  pub_date: Date()
+})
+
+db.articles.insert({ 
   headline: "",
   byline: "",
   web_url: "www.nyt.com/123",
