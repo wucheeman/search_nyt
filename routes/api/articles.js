@@ -4,8 +4,7 @@ const articlesController = require("../../controllers/articlesController");
 // Matches with "/api/articles"
 router.route("/")
   .get(articlesController.findAll)
-  // TODO: update to work with articles
-  // .post(booksController.create);
+  .post(articlesController.create);
 
 
 // TODO: update to work with articles

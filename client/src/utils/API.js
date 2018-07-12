@@ -11,8 +11,13 @@ export default {
     );
     return axios.get(searchQuery);
   },
+  // gets all saved articles
   getSaved: function() {
     return axios.get("/api/articles");
+  },
+  // Saves a article to the database
+  saveArticle: function(articleData) {
+    return axios.post("/api/articles", articleData);
   } // added trailing comma when next function added
 
 };

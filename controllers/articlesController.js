@@ -8,6 +8,12 @@ module.exports = {
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  create: function(req, res) {
+    db.Article
+      .create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   // TODO: add trailing ',' after } when another block added
   }
   // findById: function(req, res) {

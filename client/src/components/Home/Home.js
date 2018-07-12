@@ -20,9 +20,10 @@ class Home extends Component {
     if (name==='viewArticle') {
       window.open(value, '_blank');
     }
-    else if (name==='saveArticle') {
-      console.log('Need to save the article');
-    }
+    // TODO delete when ready to replace with handleSaveClick
+    // else if (name==='saveArticle') {
+    //   console.log(value.headline);
+    // }
     else if (name==='clearAll') {
       this.setState({searchTerm: ''});
       this.setState({startYear: ''});
@@ -31,7 +32,20 @@ class Home extends Component {
       // not resetting
       // this.state.error = '';
     } 
- 
+  }
+
+  handleSaveClick(headline, byline, web_url, pub_date) {
+    const articleData = {
+      headline: headline,
+      byline: byline,
+      web_url: web_url,
+      pub_date: pub_date
+    }
+    //console.log(articleData.headline, articleData.byline, articleData.web_url, articleData.pub_date);
+    API.saveArticle(articleData)
+       // TODO: empty this when cleaning up app
+       .then(console.log('saved article!'))
+       .catch(err => console.log(err));
   }
 
   handleInputChange = event => {
@@ -252,9 +266,9 @@ class Home extends Component {
                           </form>
                           <form>
                             <button
-                              value='TBD'
+                              // value='TBD'
                               name='saveArticle'
-                              onClick={this.handleClick}
+                              onClick={() => this.handleSaveClick(result.headline.main, result.byline.original, result.web_url, result.pub_date)}
                               type="button"
                               className='btn'
                             >
