@@ -14,10 +14,11 @@ class Saved extends Component {
     // results: [],
     // error: ''
     articles: [], // will be array of saved articles
+    id: "",
     headline: "",
     byline: "",
     web_url: "",
-    pub_date: "" // Mongo represents as Date; probably string is fine
+    pub_date: "" // Mongo represents as Date; 
   };
 
   componentDidMount() {
@@ -32,12 +33,13 @@ class Saved extends Component {
       .catch(err => console.log(err));
   };
 
-// TODO add method for deleting article
+  deleteArticle = id => {
+    API.deleteArticle(id)
+      .then(res => this.loadSaved())
+      .catch(err => console.log(err));
+  };
 
 
-  // TODO: not yet edited from Home.js
-  // view article should be same; other button should be delete
-  // clearAll can be deleted
   handleClick = event => {
     let value = event.target.value;
     const name = event.target.name;
@@ -45,17 +47,19 @@ class Saved extends Component {
     if (name==='viewArticle') {
       window.open(value, '_blank');
     }
-    else if (name==='saveArticle') {
-      console.log('Need to save the article');
+    else if (name==='deleteArticle') {
+      //console.log(`Need to delete the article with id ${value}`);
+      this.deleteArticle(value);
     }
-    else if (name==='clearAll') {
-      this.setState({searchTerm: ''});
-      this.setState({startYear: ''});
-      this.setState({endYear: ''});
-      this.setState({results: []});
-      // not resetting
-      // this.state.error = '';
-    } 
+    //  TODO: delete
+    // else if (name==='clearAll') {
+    //   this.setState({searchTerm: ''});
+    //   this.setState({startYear: ''});
+    //   this.setState({endYear: ''});
+    //   this.setState({results: []});
+    //   // not resetting
+    //   // this.state.error = '';
+    // } 
 
   }
   // TODO: partially (?) edited from Home.js
@@ -125,13 +129,13 @@ class Saved extends Component {
                           </form>
                           <form>
                             <button
-                              value='TBD'
-                              name='saveArticle'
+                              value={article._id}
+                              name='deleteArticle'
                               onClick={this.handleClick}
                               type="button"
                               className='btn'
                             >
-                              Save Article
+                              Delete Article
                             </button>
                           </form>
                         </div>

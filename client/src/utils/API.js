@@ -18,6 +18,10 @@ export default {
   // Saves a article to the database
   saveArticle: function(articleData) {
     return axios.post("/api/articles", articleData);
-  } // added trailing comma when next function added
+  },
+    // Deletes the book with the given id
+    deleteArticle: function(id) {
+      return axios.delete("/api/articles/" + id);
+    }
 
 };

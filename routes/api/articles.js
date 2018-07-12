@@ -7,12 +7,12 @@ router.route("/")
   .post(articlesController.create);
 
 
-// TODO: update to work with articles
-// Matches with "/api/books/:id"
-// router
-//   .route("/:id")
-//   .get(booksController.findById)
-//   .put(booksController.update)
-//   .delete(booksController.remove);
+// Matches with "/api/articles/:id"
+router
+  .route("/:id")
+  // TODO: delete these on cleanup
+  // .get(booksController.findById)
+  // .put(booksController.update)
+  .delete(articlesController.remove);
 
 module.exports = router;

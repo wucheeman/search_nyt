@@ -14,8 +14,8 @@ module.exports = {
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  // TODO: add trailing ',' after } when another block added
-  }
+  },
+  // TODO: delete these on cleanup
   // findById: function(req, res) {
   //   db.Book
   //     .findById(req.params.id)
@@ -34,11 +34,11 @@ module.exports = {
   //     .then(dbModel => res.json(dbModel))
   //     .catch(err => res.status(422).json(err));
   // },
-  // remove: function(req, res) {
-  //   db.Book
-  //     .findById({ _id: req.params.id })
-  //     .then(dbModel => dbModel.remove())
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
+  remove: function(req, res) {
+    db.Article
+      .findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  }
 };
