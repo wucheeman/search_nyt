@@ -22,7 +22,6 @@ const App = () => (
           <Route component={NoMatch} />
         </Switch>
       </Wrapper>
-      {/* <Footer /> */}
     </div>
   </Router>
 );
