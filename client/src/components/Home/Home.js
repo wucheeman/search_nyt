@@ -30,7 +30,6 @@ class Home extends Component {
 
   handleSaveClick(headline, byline, web_url, pub_date) {
     pub_date = pub_date.slice(0,10);
-    console.log(pub_date);
     const articleData = {
       headline: headline,
       byline: byline,
