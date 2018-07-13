@@ -4,7 +4,7 @@ import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => (
-  <nav className="navbar navbar-expand-sm navbar-light bg-light pl-5 d-flex justify-content-between">
+  <nav className="navbar navbar-expand-sm navbar-light bg-info pl-5 d-flex justify-content-between">
     <Link className="navbar-brand pr-5 mr-5" to="/">
       Search the New York Times
     </Link>
