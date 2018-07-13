@@ -20,4 +20,9 @@ background-color: #20315A ;
 color: white;
 }
 
+.searchbtn {
+  margin-right: 25px;
+  border-radius: 0;
+}
+
 /* end of search section styling */
