@@ -63,15 +63,30 @@ class Home extends Component {
     });
   };
 
+  validateYear = (year) => {
+    // regex for 4 digit number starting with 19 or 20
+    const validYear = /^(19|20)\d{2}$/;
+    // returns match if valid year, nothing if not
+    return (year.match(validYear));
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
     // console.log(this.state.searchTerm, this.state.startYear, this.state.endYear);
     let searchQuery = this.state.searchTerm
     if (this.state.startYear) {
-      searchQuery = `${searchQuery}&begin_date=${this.state.startYear}0101`;
+      if (this.validateYear(this.state.startYear)) {
+        searchQuery = `${searchQuery}&begin_date=${this.state.startYear}0101`;
+      } else {
+        alert('Invalid start year! Please input a valid four-digit year between 1900 and the present.');
+      }
     }
     if (this.state.endYear) {
-      searchQuery = `${searchQuery}&end_date=${this.state.endYear}1231`;
+      if (this.validateYear(this.state.endYear)) {
+        searchQuery = `${searchQuery}&end_date=${this.state.endYear}1231`;
+      } else {
+        alert('Invalid end year! Please input a valid four-digit year between 1900 and the present.');
+      }
     }
     console.log(searchQuery);
     
