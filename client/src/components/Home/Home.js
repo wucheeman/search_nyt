@@ -202,8 +202,6 @@ class Home extends Component {
                     <i className="fa fa-search"></i>
                     Search
                   </button>
-                </form>
-                <form>
                   <button
                     value=''
                     name='clearAll'
@@ -216,6 +214,19 @@ class Home extends Component {
                     Clear Results
                   </button>
                 </form>
+                {/* <form>
+                  <button
+                    value=''
+                    name='clearAll'
+                    onClick={this.handleClick}
+                    type="button"
+                    className="btn btn-default"
+                    id="clear-all"
+                  >
+                    <i className="fa fa-trash"></i>
+                    Clear Results
+                  </button>
+                </form> */}
               {/* end of card body */}
               </div>
             {/* end of first card */}
