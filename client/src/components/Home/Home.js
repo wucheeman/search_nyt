@@ -127,7 +127,7 @@ class Home extends Component {
 
                   {/* the text box for search term */}
                   <div className="form-group">
-                    <label for="search">Search Term:</label>
+                    <label htmlFor="search">Search Term:</label>
                     <input
                       value={this.state.searchTerm}
                       name='searchTerm'
@@ -139,7 +139,7 @@ class Home extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label for="start-year">Start Year (Optional):</label>
+                    <label htmlFor="start-year">Start Year (Optional):</label>
                     <input
                       value={this.state.startYear}
                       name='startYear'
@@ -151,7 +151,7 @@ class Home extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label for="end-year">End Year (Optional):</label>
+                    <label htmlFor="end-year">End Year (Optional):</label>
                     <input
                       value={this.state.endYear}
                       name='endYear'
@@ -160,7 +160,7 @@ class Home extends Component {
                       className="form-control"
                       id="end-year" />
                   </div>
-                  <div class="btn-group">
+                  <div className="btn-group">
                     <button
                       type="submit"
                       onClick={this.handleFormSubmit}
