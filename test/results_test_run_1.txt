@@ -1,4 +1,4 @@
-TEST TEMPLATE FOR SEARCH NYT
+RESULTS - TEST-RUN-1: SEARCH NYT
 
 d = deferred
 e = met by enhancement
@@ -6,8 +6,6 @@ f = failed
 p = passed
 s = skipped
 w = waiting for further work
-
-Make sure you're working in a copy of this for a homework assignment! 
 
 Static Requirements
 ===================
