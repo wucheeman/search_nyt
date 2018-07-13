@@ -1,0 +1,67 @@
+RESULTS - TEST-RUN-2: SEARCH NYT
+
+d = deferred
+e = met by enhancement
+f = failed
+p = passed
+s = skipped
+w = waiting for further work
+
+Static Requirements
+===================
+
+All static requirements were skipped.
+
+[] App is a React app
+[] App uses Mongo
+[] App uses Mongoose
+[] App uses Node/Express
+[] App uses React-Router
+[] Mongoose provides an Article schema/model
+	() title
+	() date/time of publication
+	() URL of article 
+[] App uses Bootstrap
+[] App has a get route - /api/articles to query MongoDB for all saved articles
+[] App has a post route - api/articles to save article to MongoDB
+[] App has a delete route - api/articles to delete a saved article
+[] App has a 404 route that is reached only if a requested URL does not exist on the system.
+[] App has at least two React components: Home Page and Saved Page. Each component 	may contain smaller components or JSX if desired.
+
+Functional Requirements - Assignment
+====================================
+[p] Home Page enables user to query the NYT API for articles.
+[p] Home Page displays the results from the API search in a list that
+	(p) displays the article title and publication date
+	(p) allows the user to visit an article's url
+	(p) enables user to save the article to the MongoDB.
+[p] Saved Page renders articles that are saved in the MongoDB
+[p] Saved Page allows the user to visit the article's url
+[p] Saved Page enables user to delete article from the MongoDB.
+[s] Saved Page may contain smaller components or JSX
+[p] App 404 route is not triggered by any URL that exists on the system
+[p] App 404 route is triggered by query to URL that does not exist on the system
+
+Additional Functionality
+========================
+[p] App initializes correctly
+[p] App reinitializes correctly
+[p] App rejects empty search term (stretch goal)
+[p] App validates start date
+[p] App validates end date
+[p] App works with only subject as search term
+[p] App works with subject + start year + end year as search term
+[p] App works with subject + only start year as search term
+[p] App works with subject + only end year as search term
+[p] Clear results clears search results and enables fresh search
+
+Bonus Functionality
+===================
+[s] App uses socket.io to create a notification or a component that triggers whenever a user saves an article. Your message should include the title of the saved article.
+[s] Say you have multiple browsers open, each one visiting your site. If you save an article in one browser, then all of your browsers should notify you that a new article was saved.
+
+Display
+=======
+[p] App resembles demo closely
+
+
