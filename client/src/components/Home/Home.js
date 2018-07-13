@@ -129,14 +129,6 @@ class Home extends Component {
     return(
       <div className='container'>
 
-        {/* <!-- Jumbotron for Title --> */}
-        {/* <div className="jumbotron">
-          <h1 className="text-center">
-            <strong>
-              <i className="fa fa-newspaper-o"></i> New York Times Search</strong>
-          </h1>
-        </div> */}
-
         {/* <!-- Row for Searching New York Times --> */}
         <div className="row">
           <div className="col-sm-12">
@@ -207,7 +199,7 @@ class Home extends Component {
                       name='clearAll'
                       onClick={this.handleClick}
                       type="button"
-                      className="btn btn-warning searchbtn"
+                      className="btn btn-secondary searchbtn"
                       id="clear-all"
                     >
                       <i className="fa fa-trash pr-2"></i>
@@ -215,19 +207,7 @@ class Home extends Component {
                     </button>
                   </div>
                 </form>
-                {/* <form>
-                  <button
-                    value=''
-                    name='clearAll'
-                    onClick={this.handleClick}
-                    type="button"
-                    className="btn btn-default"
-                    id="clear-all"
-                  >
-                    <i className="fa fa-trash"></i>
-                    Clear Results
-                  </button>
-                </form> */}
+
               {/* end of card body */}
               </div>
             {/* end of first card */}
