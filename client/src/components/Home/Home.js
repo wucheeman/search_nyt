@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import "./Home.css";
 
-// const Home = props => (
-
 class Home extends Component {
   state = {
     searchTerm: '',
@@ -20,10 +18,6 @@ class Home extends Component {
     if (name==='viewArticle') {
       window.open(value, '_blank');
     }
-    // TODO delete when ready to replace with handleSaveClick
-    // else if (name==='saveArticle') {
-    //   console.log(value.headline);
-    // }
     else if (name==='clearAll') {
       this.setState({searchTerm: ''});
       this.setState({startYear: ''});
@@ -41,10 +35,8 @@ class Home extends Component {
       web_url: web_url,
       pub_date: pub_date
     }
-    //console.log(articleData.headline, articleData.byline, articleData.web_url, articleData.pub_date);
     API.saveArticle(articleData)
-       // TODO: empty this when cleaning up app
-       .then(console.log('saved article!'))
+       .then()
        .catch(err => console.log(err));
   }
 
@@ -52,12 +44,7 @@ class Home extends Component {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
-    console.log(value);
-    // TODO: add validation for startYear and endYear
-    // if (name === "password") {
-    //   value = value.substring(0, 15);
-    // }
-    // Updating the input's state
+    //console.log(value);
     this.setState({
       [name]: value
     });
@@ -72,7 +59,6 @@ class Home extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // console.log(this.state.searchTerm, this.state.startYear, this.state.endYear);
     let searchQuery = this.state.searchTerm
     searchQuery = searchQuery.trim();
     if (!searchQuery) {
@@ -98,28 +84,18 @@ class Home extends Component {
     console.log(searchQuery);
     
     API.getArticles(searchQuery)
-      //  .then(console.log)
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res);
         }
         res.data.response.docs.forEach(function (doc) {
-          // console.log(doc.byline);
           if (doc.byline === undefined) {
             doc.byline = {original: 'No Byline'};
-            // console.log(doc.byline);
           }
          if (doc.pub_date === undefined) {
               doc.pub_date = 'Undated';
-              // console.log(doc.pub_date);
-          }
+           }
         });
-        // TODO: delete when no longer useful
-        // console.log(res.data.response.docs[9].headline.main);
-        // console.log(res.data.response.docs[9].byline.original);
-        // console.log(res.data.response.docs[9].pub_date);
-        // console.log(res.data.response.docs[0].web_url);
-        // console.log(res.data.response.docs);
         this.setState({ results: res.data.response.docs, error: "" });
       })
       .catch(err => this.setState({ error: err.message }));
@@ -146,8 +122,7 @@ class Home extends Component {
 
               <div className="card-body">
                 {/* HTML Form for inputs */}
-                {/* TODO: remove role=form; redundant and bad practice */}
-                <form role="form">
+                <form>
 
                   {/* the text box for search term */}
                   <div className="form-group">
@@ -235,18 +210,14 @@ class Home extends Component {
                 </h3>
               </div>
 
-              {/* TODO: improve ID */}
               {/* individual articles go in cards here */}
-              <div className="card-body" id="well-section">
+              <div className="card-body">
                 {/* {console.log(this.state.results)} */}
                 {this.state.results.map(result => (
                   // start of article card
                   <div className='row border-top border-bottom'>
 
                     <div className='col-sm-9 pt-2'>
-                      {/* start of content card */}
-                      {/* TODO: delete key value? doesn't seem to work */}
-                      {/* <div className='card' key={result.web_url}> */}
                         <h4>
                           <strong>
                             {result.headline.main}
@@ -258,14 +229,10 @@ class Home extends Component {
                         <h6>
                           {result.pub_date}
                         </h6>
-                       {/* end of content card */}
-                      {/* </div> */}
                     {/* End of col-sm-9 */}
                     </div>
 
                     <div className='col-sm-3 d-flex align-items-center'>
-                      {/* start of button card */}
-                      {/* <div className='card' key={result.web_url}> */}
                         <div className='btn-group vertical'>
                           <form>
                             <button
@@ -281,7 +248,6 @@ class Home extends Component {
                         
                           <form>
                             <button
-                              // value='TBD'
                               name='saveArticle'
                               onClick={() => this.handleSaveClick(result.headline.main, result.byline.original, result.web_url, result.pub_date)}
                               type="button"
@@ -291,8 +257,6 @@ class Home extends Component {
                             </button>
                           </form>
                         </div>
-                      {/* end of button card */}
-                      {/* </div> */}
                     {/* end of col-sm-4 */}
                     </div>
 
