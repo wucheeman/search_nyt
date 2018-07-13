@@ -192,28 +192,28 @@ class Home extends Component {
                       className="form-control"
                       id="end-year" />
                   </div>
-<div class="btn-group">
-                  <button
-                    type="submit"
-                    onClick={this.handleFormSubmit}
-                    className="btn btn-success searchbtn"
-                    id="run-search"
-                  >
-                    <i className="fa fa-search pr-2"></i>
-                    Search For It!
-                  </button>
-                  <button
-                    value=''
-                    name='clearAll'
-                    onClick={this.handleClick}
-                    type="button"
-                    className="btn btn-warning searchbtn"
-                    id="clear-all"
-                  >
-                    <i className="fa fa-trash pr-2"></i>
-                    Clear Results!
-                  </button>
-</div>
+                  <div class="btn-group">
+                    <button
+                      type="submit"
+                      onClick={this.handleFormSubmit}
+                      className="btn btn-success searchbtn"
+                      id="run-search"
+                    >
+                      <i className="fa fa-search pr-2"></i>
+                      Search For It!
+                    </button>
+                    <button
+                      value=''
+                      name='clearAll'
+                      onClick={this.handleClick}
+                      type="button"
+                      className="btn btn-warning searchbtn"
+                      id="clear-all"
+                    >
+                      <i className="fa fa-trash pr-2"></i>
+                      Clear Results!
+                    </button>
+                  </div>
                 </form>
                 {/* <form>
                   <button
