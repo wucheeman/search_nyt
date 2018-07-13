@@ -22,3 +22,8 @@ color: white;
 }
 
 /* end of search section styling */
+
+.articleBtn {
+  margin-right: 15px;
+  border-radius: 0;
+}

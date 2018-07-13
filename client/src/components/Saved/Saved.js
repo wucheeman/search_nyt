@@ -1,4 +1,4 @@
-// This file will be very, very wet!
+// This file is very wet!
 
 import React, { Component } from "react";
 import API from "../../utils/API";
@@ -62,7 +62,7 @@ class Saved extends Component {
     // } 
 
   }
-  // TODO: partially (?) edited from Home.js
+
   render() {
     return(
       <div className='container'>
@@ -90,12 +90,12 @@ class Saved extends Component {
                 {/* {console.log(this.state.articles)} */}
                 {this.state.articles.map(article => (
                   // start of article card
-                  <div className='row'>
+                  <div className='row border-top border-bottom'>
 
-                    <div className='col-sm-8'>
+                    <div className='col-sm-9 pt-2'>
                       {/* start of content card */}
                       {/* TODO: delete key value? doesn't seem to work */}
-                      <div className='card' key={article.web_url}>
+                      {/* <div className='card' key={article.web_url}> */}
                         <h4>
                           <strong>
                             {article.headline}
@@ -108,13 +108,13 @@ class Saved extends Component {
                           {article.pub_date}
                         </h6>
                        {/* end of content card */}
-                      </div>
-                    {/* End of col-sm-8 */}
+                      {/* </div> */}
+                    {/* End of col-sm-9 */}
                     </div>
 
-                    <div className='col-sm-4'>
+                    <div className='col-sm-3 d-flex align-items-center'>
                       {/* start of button card */}
-                      <div className='card' key={article.web_url}>
+                      {/* <div className='card' key={article.web_url}> */}
                         <div className='btn-group vertical'>
                           <form>
                             <button
@@ -122,7 +122,7 @@ class Saved extends Component {
                               name='viewArticle'
                               onClick={this.handleClick}
                               type="button"
-                              className='btn'
+                              className='btn articleBtn bg-success'
                             >
                               View Article
                             </button>
@@ -133,14 +133,14 @@ class Saved extends Component {
                               name='deleteArticle'
                               onClick={this.handleClick}
                               type="button"
-                              className='btn'
+                              className='btn articleBtn bg-danger'
                             >
                               Delete Article
                             </button>
                           </form>
                         </div>
                       {/* end of button card */}
-                      </div>
+                      {/* </div> */}
                     {/* end of col-sm-4 */}
                     </div>
 
