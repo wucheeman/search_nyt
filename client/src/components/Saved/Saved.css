@@ -2,9 +2,6 @@ ul.search-results img {
   margin: 0 auto;
 }
 
-/* ALL styles have been copied from Home.css */
-/* style for search section begins */
-
 /* fix for issue of text extending past panel length */
 
 .card-body a {
@@ -20,8 +17,6 @@ ul.search-results img {
 background-color: #20315A ;
 color: white;
 }
-
-/* end of search section styling */
 
 .articleBtn {
   margin-right: 15px;
