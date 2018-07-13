@@ -74,11 +74,17 @@ class Home extends Component {
     event.preventDefault();
     // console.log(this.state.searchTerm, this.state.startYear, this.state.endYear);
     let searchQuery = this.state.searchTerm
+    searchQuery = searchQuery.trim();
+    if (!searchQuery) {
+      alert('Please enter one or more words.');
+      return;
+    }
     if (this.state.startYear) {
       if (this.validateYear(this.state.startYear)) {
         searchQuery = `${searchQuery}&begin_date=${this.state.startYear}0101`;
       } else {
         alert('Invalid start year! Please input a valid four-digit year between 1900 and the present.');
+        return;
       }
     }
     if (this.state.endYear) {
@@ -86,6 +92,7 @@ class Home extends Component {
         searchQuery = `${searchQuery}&end_date=${this.state.endYear}1231`;
       } else {
         alert('Invalid end year! Please input a valid four-digit year between 1900 and the present.');
+        return;
       }
     }
     console.log(searchQuery);
