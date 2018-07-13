@@ -24,7 +24,7 @@ Static Requirements
 [] App has a get route - /api/articles to query MongoDB for all saved articles
 [] App has a post route - api/articles to save article to MongoDB
 [] App has a delete route - api/articles to delete a saved article
-[] `*` (get) - to load single HTML page (with ReactJS) in `client/build/index.html`. This route is placed after all other GET routes
+[] App has a 404 route that is reached only if a requested URL does not exist on the system.
 [] App has at least two React components: Home Page and Saved Page. Each component 	may contain smaller components or JSX if desired.
 
 Functional Requirements - Assignment
@@ -38,6 +38,7 @@ Functional Requirements - Assignment
 [] Saved Page allows the user to visit the article's url
 [] Saved Page enables user to delete article from the MongoDB.
 [] Saved Page may contain smaller components or JSX
+[] App 404 route is not triggered by any URL that exists on the system
 
 Additional Functionality
 ========================
@@ -46,6 +47,11 @@ Additional Functionality
 [] App rejects empty search term (stretch goal)
 [] App validates start date
 [] App validates end date
+[] App works with only subject as search term
+[] App does not work without subject as search term
+[] App works with subject + start year + end year as search term
+[] App works with subject + only start year as search term
+[] App works with subject + only end year as search term
 
 Bonus Functionality
 ===================
