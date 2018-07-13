@@ -241,12 +241,12 @@ class Home extends Component {
                 {/* {console.log(this.state.results)} */}
                 {this.state.results.map(result => (
                   // start of article card
-                  <div className='row'>
+                  <div className='row border-top border-bottom'>
 
-                    <div className='col-sm-8'>
+                    <div className='col-sm-9 pt-2'>
                       {/* start of content card */}
                       {/* TODO: delete key value? doesn't seem to work */}
-                      <div className='card' key={result.web_url}>
+                      {/* <div className='card' key={result.web_url}> */}
                         <h4>
                           <strong>
                             {result.headline.main}
@@ -259,13 +259,13 @@ class Home extends Component {
                           {result.pub_date}
                         </h6>
                        {/* end of content card */}
-                      </div>
-                    {/* End of col-sm-8 */}
+                      {/* </div> */}
+                    {/* End of col-sm-9 */}
                     </div>
 
-                    <div className='col-sm-4'>
+                    <div className='col-sm-3 d-flex align-items-center'>
                       {/* start of button card */}
-                      <div className='card' key={result.web_url}>
+                      {/* <div className='card' key={result.web_url}> */}
                         <div className='btn-group vertical'>
                           <form>
                             <button
@@ -273,25 +273,26 @@ class Home extends Component {
                               name='viewArticle'
                               onClick={this.handleClick}
                               type="button"
-                              className='btn'
+                              className='btn articleBtn bg-success'
                             >
                               View Article
                             </button>
                           </form>
+                        
                           <form>
                             <button
                               // value='TBD'
                               name='saveArticle'
                               onClick={() => this.handleSaveClick(result.headline.main, result.byline.original, result.web_url, result.pub_date)}
                               type="button"
-                              className='btn'
+                              className='btn articleBtn bg-primary'
                             >
                               Save Article
                             </button>
                           </form>
                         </div>
                       {/* end of button card */}
-                      </div>
+                      {/* </div> */}
                     {/* end of col-sm-4 */}
                     </div>
 
